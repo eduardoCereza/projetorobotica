@@ -50,7 +50,7 @@ app.post('/tasks', (req, res) => {
 
 // Rota para página inicial
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', "index.html")); // Certifique-se de que o index.html está na pasta 'public'
+    res.sendFile(path.join(__dirname, 'public', "init.html")); // Certifique-se de que o index.html está na pasta 'public'
 });
 
 // Iniciar o servidor
