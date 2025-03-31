@@ -17,7 +17,7 @@ app.get('/', (req, res) => {
 });
 
 // Rota para carregar um Kanban específico
-app.get('/kanban/:team', (req, res) => {
+app.get('/Avalon/public', (req, res) => {
     const team = req.params.team;
     res.sendFile(path.join(__dirname, 'Avalon/public', `kanban${team}.html`));
 });
