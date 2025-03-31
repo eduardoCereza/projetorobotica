@@ -5,7 +5,7 @@ const app = express();
 const PORT = 3000;
 
 // Servir arquivos estáticos (CSS, JS, imagens)
-app.use(express.static(path.join(__dirname, 'Avalon/public')));
+app.use('/public', express.static(path.join(__dirname, 'Avalon/public')));
 app.use(express.static(path.join(__dirname, 'Avalon/init')));
 
 // Middleware para permitir JSON no body das requisições
@@ -17,10 +17,18 @@ app.get('/', (req, res) => {
 });
 
 // Rota para carregar um Kanban específico
-app.get('/Avalon/public', (req, res) => {
+app.get('/kanban/:team', (req, res) => {
     const team = req.params.team;
-    res.sendFile(path.join(__dirname, 'Avalon/public', `kanban${team}.html`));
+    const filePath = path.join(__dirname, 'Avalon/public', `kanban${team}.html`);
+
+    console.log(`Tentando acessar: ${filePath}`); // DEBUG
+    if (fs.existsSync(filePath)) {
+        res.sendFile(filePath);
+    } else {
+        res.status(404).send("Kanban não encontrado!");
+    }
 });
+
 
 // Rota para carregar tarefas de um Kanban
 app.get('/api/tasks/:team', (req, res) => {
