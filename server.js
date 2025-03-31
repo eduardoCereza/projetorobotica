@@ -30,26 +30,35 @@ app.get('/kanban/:team', (req, res) => {
 
 
 // Rota para carregar tarefas de um Kanban
+// Rota para carregar tarefas do arquivo tasks.json
 app.get('/api/tasks/:team', (req, res) => {
     const team = req.params.team;
-    const filePath = path.join(__dirname, 'Avalon/data', `kanban${team}.json`);
-    
+    const filePath = path.join(__dirname, 'tasks.json');  // Alterar para o caminho correto
+
     if (fs.existsSync(filePath)) {
         const tasks = fs.readFileSync(filePath);
         res.json(JSON.parse(tasks));
     } else {
-        res.json([]); // Se não existir, retorna um array vazio
+        res.json([]);  // Se o arquivo não existir, retorna um array vazio
     }
 });
 
+
 // Rota para salvar tarefas de um Kanban
+// Rota para salvar tarefas no arquivo tasks.json
 app.post('/api/tasks/:team', (req, res) => {
     const team = req.params.team;
-    const filePath = path.join(__dirname, 'Avalon/data', `kanban${team}.json`);
+    const filePath = path.join(__dirname, 'tasks.json'); // Alterar para o caminho correto
     
-    fs.writeFileSync(filePath, JSON.stringify(req.body, null, 2));
-    res.json({ message: 'Tarefas salvas com sucesso!' });
+    try {
+        fs.writeFileSync(filePath, JSON.stringify(req.body, null, 2));
+        res.json({ message: 'Tarefas salvas com sucesso!' });
+    } catch (error) {
+        console.error('Erro ao salvar tarefas:', error);
+        res.status(500).json({ message: 'Erro ao salvar tarefas!' });
+    }
 });
+
 
 // Iniciar o servidor
 app.listen(PORT, () => {

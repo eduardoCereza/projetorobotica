@@ -59,49 +59,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Função para carregar as tarefas do servidor
-    function carregarTarefas() {
-        fetch('http://localhost:3000/tasks')
-            .then(response => response.json())
-            .then(tasks => {
-                tasks.forEach(task => {
-                    const taskElement = document.createElement("div");
-                    taskElement.classList.add("task");
-                    taskElement.setAttribute("draggable", "true");
-                    taskElement.setAttribute("id", task.id);
-                    taskElement.addEventListener("dragstart", drag);
-                    taskElement.innerHTML = `
-                        <p><strong>${task.name}</strong></p>
-                        <p>Categoria: ${task.category}</p>
-                        <p>Prioridade: <span class="priority-${task.priority}">${task.priority}</span></p>
-                    `;
-                    todoList.appendChild(taskElement);
-                });
-            })
-            .catch(error => {
-                console.error("Erro ao carregar as tarefas", error);
-            });
-    }
+// Função para carregar as tarefas do servidor
+function carregarTarefas(team) {
+    fetch(`/api/tasks/${team}`)
+    .then(response => response.json())
+    .then(tasks => {
+        // Aqui você vai inserir as tarefas no DOM do Kanban
+        console.log('Tarefas carregadas:', tasks);
+        // Exemplo de inserção no DOM (depende de sua lógica)
+        tasks.forEach(task => {
+            // Insira as tarefas no Kanban (como no seu código original)
+        });
+    })
+    .catch(error => console.error('Erro ao carregar tarefas:', error));
+}
+
 
     // Função para salvar a tarefa no servidor
-    function salvarTarefaNoServidor(task) {
-        fetch('http://localhost:3000/tasks', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(task)
-        })
-        .then(response => {
-            if (response.ok) {
-                console.log("Tarefa salva com sucesso!");
-            } else {
-                console.error("Erro ao salvar tarefa!");
-            }
-        })
-        .catch(error => {
-            console.error("Erro ao enviar tarefa para o servidor", error);
-        });
-    }
+    // Função para salvar as tarefas no servidor
+function salvarTarefaNoServidor(team, tasks) {
+    fetch(`/api/tasks/${team}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(tasks),
+    })
+    .then(response => response.json())
+    .then(data => console.log('Tarefas salvas com sucesso', data))
+    .catch(error => console.error('Erro ao salvar tarefas:', error));
+}
+
 
     // Permitir que os elementos arrastáveis possam ser soltos
     const dropZones = document.querySelectorAll(".task-list");
