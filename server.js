@@ -13,19 +13,19 @@ app.use(express.json());
 
 // Rota para a página inicial (Menu)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'init', 'index.html'));
+    res.sendFile(path.join(__dirname, 'Avalon/init', 'index.html'));
 });
 
 // Rota para carregar um Kanban específico
 app.get('/kanban/:team', (req, res) => {
     const team = req.params.team;
-    res.sendFile(path.join(__dirname, 'public', `kanban${team}.html`));
+    res.sendFile(path.join(__dirname, 'Avalon/public', `kanban${team}.html`));
 });
 
 // Rota para carregar tarefas de um Kanban
 app.get('/api/tasks/:team', (req, res) => {
     const team = req.params.team;
-    const filePath = path.join(__dirname, 'data', `kanban${team}.json`);
+    const filePath = path.join(__dirname, 'Avalon/data', `kanban${team}.json`);
     
     if (fs.existsSync(filePath)) {
         const tasks = fs.readFileSync(filePath);
