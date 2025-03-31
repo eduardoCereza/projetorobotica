@@ -14,20 +14,24 @@ document.addEventListener("DOMContentLoaded", function () {
     // Carregar tarefas do servidor
     carregarTarefas(team);
 
+    // Evento para abrir o modal de adição de tarefa
     document.querySelector(".add-task").addEventListener("click", function () {
         modal.style.display = "block";
     });
 
+    // Fechar o modal
     document.querySelector(".close").addEventListener("click", function () {
         modal.style.display = "none";
     });
 
+    // Fechar o modal quando clicar fora dele
     window.addEventListener("click", function (event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
     });
 
+    // Adicionar tarefa
     addTaskButton.addEventListener("click", function () {
         const taskName = document.getElementById("taskName").value;
         const taskCategory = document.getElementById("taskCategory").value;
