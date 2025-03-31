@@ -3,8 +3,16 @@ document.addEventListener("DOMContentLoaded", function () {
     const addTaskButton = document.getElementById("addTask");
     const todoList = document.getElementById("todo");
 
+    // Identifique qual Kanban você está acessando pela URL
+    const team = window.location.pathname.split('/')[2]; // Assume que a URL tem o formato /kanban1 ou /kanban2
+    
+    if (!team) {
+        console.error('Equipe não especificada!');
+        return;
+    }
+
     // Carregar tarefas do servidor
-    carregarTarefas();
+    carregarTarefas(team);
 
     document.querySelector(".add-task").addEventListener("click", function () {
         modal.style.display = "block";
@@ -37,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function () {
             priority: taskPriority
         };
 
-        // Enviar tarefa para o servidor (salvar no JSON)
-        salvarTarefaNoServidor(task);
+        // Enviar tarefa para o servidor (salvar no JSON da equipe específica)
+        salvarTarefaNoServidor(team, task);
 
         // Criar o elemento da tarefa no HTML
         const taskElement = document.createElement("div");
@@ -59,8 +67,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // Função para carregar as tarefas do servidor
-    function carregarTarefas() {
-        fetch('http://localhost:3000/tasks')
+    function carregarTarefas(team) {
+        fetch(`http://localhost:3000/api/tasks/${team}`)
             .then(response => response.json())
             .then(tasks => {
                 tasks.forEach(task => {
@@ -83,8 +91,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Função para salvar a tarefa no servidor
-    function salvarTarefaNoServidor(task) {
-        fetch('http://localhost:3000/tasks', {
+    function salvarTarefaNoServidor(team, task) {
+        fetch(`http://localhost:3000/api/tasks/${team}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
