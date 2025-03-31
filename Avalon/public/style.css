@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+.anton-regular {
+    font-family: "Anton", sans-serif;
+    font-weight: 32.3;
+    font-style: normal;
+}
+
+.bebas-neue-regular {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+  
+/* Resetando margens e removendo sublinhado */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s ease; /* Suaviza a transição */
+}
+
+.menu a:hover {
+    background-color: rgba(200, 200, 200, 0.5); /* Cinza mais claro */
+    border-radius: 5px; /* Arredonda as bordas */
+}
+
+
+.menu-left, .menu-right {
+    display: flex;
+}
+
+/* Contêiner principal */
+.container {
+    width: 1360px;
+    background: white;
+}
+.container1 {
+    width: 1360px;
+    background: white;
+}
+.container2 {
+    width: 1360px;
+    background: white;
+}
+.container3{
+    width: 1360px;
+    background: white;
+}
+
+.container5{
+    width: 1360px;
+    background: white;
+}
+
+.container4{
+    width: 1360px;
+    background: white;
+}
+
+/* Título */
+.titulored {
+    font-size: 30px;
+    font-weight: bold;
+    color: #ff0000;
+    display: flex;
+    align-items: center;
+}
+.tituloyellow {
+    font-size: 30px;
+    font-weight: bold;
+    color:#ffb000ed;
+    display: flex;
+    align-items: center;
+}
+
+.titulogreen {
+    font-size: 30px;
+    font-weight: bold;
+    color:#698934;
+    display: flex;
+    align-items: center;
+}
+
+.titulogray{
+    font-size: 30px;
+    font-weight: bold;
+    color:#348965;
+    display: flex;
+    align-items: center;
+}
+
+.tituloblue{
+    font-size: 30px;
+    font-weight: bold;
+    color:#345689;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 10px;
+}
+
+/* Lista de tarefas */
+.task-list {
+    display: flex;
+    flex-direction: column; /* Alinha as tarefas verticalmente */
+    gap: 10px; /* Espaço entre as tarefas */
+    padding: 10px;
+    min-height: 200px; /* Mantém espaço visível */
+    border: 2px dashed #ccc; /* Apenas para visualizar melhor */
+}
+
+.task {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: grab;
+}
+
+
+.task input {
+    margin-right: 8px;
+}
+
+/* Opção de adicionar tarefa */
+.add-task {
+    padding: 10px;
+    color: gray;
+    cursor: pointer;
+}
+
+/* Fazendo POPUP */
+/* Estilizando o Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content input,
+.modal-content select {
+    width: 100%;
+    margin: 10px 0;
+    padding: 8px;
+}
+
+.close {
+    color: red;
+    font-size: 25px;
+    float: right;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: darkred;
+}
+
+.p1 { background-color: red; }
+.p2 { background-color: blue; }
+.p3 { background-color: green; }
+.p4 { background-color: orange; }  
