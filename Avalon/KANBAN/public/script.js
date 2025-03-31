@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const todoList = document.getElementById("todo");
 
     // Identifique qual Kanban você está acessando pela URL
-    const team = window.location.pathname.split('/')[2]; // Assume que a URL tem o formato /kanban1 ou /kanban2
+    const team = window.location.pathname.split('/')[1]; // Assume que a URL tem o formato /kanban1 ou /kanban2
     
     if (!team) {
         console.error('Equipe não especificada!');
