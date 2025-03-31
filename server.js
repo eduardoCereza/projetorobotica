@@ -5,20 +5,20 @@ const app = express();
 const PORT = 3000;
 
 // Servir arquivos estáticos (CSS, JS, imagens)
-app.use(express.static(path.join(__dirname, 'Avalon/public')));
+app.use(express.static(path.join(__dirname, 'Avalon/KANBAN/public')));
 
 // Middleware para permitir JSON no body das requisições
 app.use(express.json());
 
 // Rota para a página inicial (Menu)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Avalon/public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'Avalon/KANBAN/public', 'index.html'));
 });
 
 // Rota para carregar um Kanban específico
 app.get('/kanban/:team', (req, res) => {
     const team = req.params.team;
-    const filePath = path.join(__dirname, 'Avalon/public', `kanban${team}.html`);
+    const filePath = path.join(__dirname, 'Avalon/KANBAN/public', `kanban${team}.html`);
 
     console.log(`Tentando acessar: ${filePath}`); // DEBUG
     if (fs.existsSync(filePath)) {
