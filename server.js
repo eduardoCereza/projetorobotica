@@ -33,7 +33,7 @@ app.get('/kanban/:team', (req, res) => {
 // Rota para carregar tarefas do arquivo tasks.json
 app.get('/api/tasks/:team', (req, res) => {
     const team = req.params.team;
-    const filePath = path.join(__dirname, 'tasks.json');  // Alterar para o caminho correto
+    const filePath = path.join(__dirname, 'Avalon/tasks.json');  // Alterar para o caminho correto
 
     if (fs.existsSync(filePath)) {
         const tasks = fs.readFileSync(filePath);
@@ -48,7 +48,7 @@ app.get('/api/tasks/:team', (req, res) => {
 // Rota para salvar tarefas no arquivo tasks.json
 app.post('/api/tasks/:team', (req, res) => {
     const team = req.params.team;
-    const filePath = path.join(__dirname, 'Avalon/KANBAN/tasks.json'); // Alterar para o caminho correto
+    const filePath = path.join(__dirname, 'Avalon/tasks.json'); // Alterar para o caminho correto
     
     try {
         fs.writeFileSync(filePath, JSON.stringify(req.body, null, 2));
