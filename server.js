@@ -6,14 +6,13 @@ const PORT = 3000;
 
 // Servir arquivos estáticos (CSS, JS, imagens)
 app.use(express.static(path.join(__dirname, 'Avalon/public')));
-app.use(express.static(path.join(__dirname, 'Avalon/init')));
 
 // Middleware para permitir JSON no body das requisições
 app.use(express.json());
 
 // Rota para a página inicial (Menu)
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'Avalon/init', 'index.html'));
+    res.sendFile(path.join(__dirname, 'Avalon/public', 'index.html'));
 });
 
 // Rota para carregar um Kanban específico
