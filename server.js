@@ -6,7 +6,7 @@ const PORT = 3000;
 
 // Servir arquivos estáticos (CSS, JS, imagens)
 app.use(express.static(path.join(__dirname, 'Avalon/public')));
-app.use(express.static(path.join(__dirname, 'Avalon/init')));
+app.use('/Avalon/init', express.static(path.join(__dirname, 'Avalon/init')));
 
 // Middleware para permitir JSON no body das requisições
 app.use(express.json());
