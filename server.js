@@ -5,8 +5,8 @@ const app = express();
 const PORT = 3000;
 
 // Servir arquivos estáticos (CSS, JS, imagens)
-app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'init')));
+app.use(express.static(path.join(__dirname, 'Avalon/public')));
+app.use(express.static(path.join(__dirname, 'Avalon/init')));
 
 // Middleware para permitir JSON no body das requisições
 app.use(express.json());
@@ -38,7 +38,7 @@ app.get('/api/tasks/:team', (req, res) => {
 // Rota para salvar tarefas de um Kanban
 app.post('/api/tasks/:team', (req, res) => {
     const team = req.params.team;
-    const filePath = path.join(__dirname, 'data', `kanban${team}.json`);
+    const filePath = path.join(__dirname, 'Avalon/data', `kanban${team}.json`);
     
     fs.writeFileSync(filePath, JSON.stringify(req.body, null, 2));
     res.json({ message: 'Tarefas salvas com sucesso!' });
