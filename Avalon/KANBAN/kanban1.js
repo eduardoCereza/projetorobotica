@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() { //essa funcao garante que o JAVAScript só vai ser executado depois que o HTML for carregado
+
 //Pega as divs com a classe column
 //Criei variaveis para podermos pegar elementos do HTML que iremos manipular. As funcoes querySelectorAll pegam todos 
 // os elementos que possuem a classe passada como parametro e retorna um array com todos os elementos encontrados.
@@ -65,3 +67,4 @@ todoList.appendChild(taskElement); //adiciona a tarefa na lista de tarefas -- a 
 
 modal.style.display = 'none'; //ao clicar no botao adicionar, a janela modal desaparece
 document.getElementById('task-name').value = ''; //limpa o campo de nome da tarefa
+});
