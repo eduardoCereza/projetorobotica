@@ -194,3 +194,9 @@ body {
 .close:hover {
     color: darkred;
 }
+
+.setinha{
+    width: 60px;
+    height: 50px;
+    position: right;
+}

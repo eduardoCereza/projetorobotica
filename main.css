@@ -56,3 +56,9 @@ h1 {
 .kanban-selection a:hover {
     transform: scale(1.1);
 }
+
+.setinha{
+    width: 50px;
+    height: 50px;
+    position: right;
+}

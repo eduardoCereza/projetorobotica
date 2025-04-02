@@ -76,7 +76,6 @@ dropZones.forEach(zone => { //adiciona o evento dragover na zona de drop -- drop
     zone.addEventListener('drop', drop); //adiciona o evento drop na zona de drop -- o evento drop é acionado quando o elemento é solto na zona de drop
 });
 
-});
 
 //Funcoes do Drag e Drop
 // 1. Permitir o Drop
@@ -99,6 +98,7 @@ function drop(event) {
         event.target.appendChild(task); //adiciona a tarefa na zona de drop -- a zona de drop é o container onde as tarefas podem ser soltas
     }
 }  
+});
 
 /*
 1. Habilitando a funcionalidade de arrastar (dragstart)
