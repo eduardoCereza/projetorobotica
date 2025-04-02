@@ -53,3 +53,10 @@ const taskElement = document.createElement('div');
 taskElement.classList.add('task'); //adiciona a classe task na div -- a classe task é a tarefa que colocamos nos containers de situacao da tarefa
 taskElement.setAttribute('draggable', 'true'); //adiciona o atributo draggable na div -- o atributo draggable permite que o elemento seja arrastado
 taskElement.setAttribute('id', taskName); //adiciona o atributo id na div -- o atributo id é o nome da tarefa
+taskElement.addEventListener('dragstart', drag); //adiciona o evento dragstart na div -- o evento dragstart é acionado quando o elemento começa a ser arrastado
+taskElement.innerHTML = `
+    <h3>${taskName}</h3>
+    <p>Categoria: ${taskCategory}</p>
+    <p>Prioridade: ${taskPriority}</p>
+    <button class="delete-task">Excluir</button>
+`; //adiciona o conteudo da tarefa na div -- o conteudo da tarefa é o nome, a categoria e a prioridade da tarefa
