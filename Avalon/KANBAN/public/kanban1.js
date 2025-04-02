@@ -1,0 +1,3 @@
+//pegar
+//arrastar
+//soltar
