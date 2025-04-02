@@ -24,3 +24,10 @@ window.addEventListener('click', function(event) {
         modal.style.display = 'none'; //ao clicar fora da janela modal, a janela desaparece
     }
 });
+
+//Passo 4: Adicionar tarefa
+addTaskButton.addEventListener('click', function() {
+    const taskName = document.getElementById('task-name').value; //vai buscar no HTML a div com o ID task-name
+    const taskCategory = document.getElementById('task-category').value; //vai buscar no HTML a div com o ID task-category
+    const taskPriority = document.getElementById('task-priority').value; //vai buscar no HTML a div com o ID task-priority
+});
