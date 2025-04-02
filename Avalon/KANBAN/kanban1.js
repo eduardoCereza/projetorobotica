@@ -3,9 +3,10 @@ document.addEventListener("DOMContentLoaded", function() { //essa funcao garante
 //Pega as divs com a classe column
 //Criei variaveis para podermos pegar elementos do HTML que iremos manipular. As funcoes querySelectorAll pegam todos 
 // os elementos que possuem a classe passada como parametro e retorna um array com todos os elementos encontrados.
-const modal = document.getElementById('.modal'); //janela onde adicionamos tarefas
-const addTaskButton = document.getElementById('.add-task'); //botao de add nova tarefa
-const todolist = document.getElementById('.todo'); //container onde as tarefas são adicionadas
+const modal = document.getElementById('modal'); //janela onde adicionamos tarefas
+const addTaskButton = document.querySelector('.add-task'); //botao de add nova tarefa
+const todolist = document.querySelector('.todo'); //container onde as tarefas são adicionadas
+const closeButton = document.querySelector('.close'); //botao de fechar a janela modal
 
 //Passo 1: Clicar para abrir JANELA
 //quando eu clicar em Adicionar tarefa, a janela modal aparece, por conta funcao addEventListener
