@@ -60,3 +60,8 @@ taskElement.innerHTML = `
     <p>Prioridade: ${taskPriority}</p>
     <button class="delete-task">Excluir</button>
 `; //adiciona o conteudo da tarefa na div -- o conteudo da tarefa é o nome, a categoria e a prioridade da tarefa
+
+todoList.appendChild(taskElement); //adiciona a tarefa na lista de tarefas -- a lista de tarefas é o container onde as tarefas são adicionadas
+
+modal.style.display = 'none'; //ao clicar no botao adicionar, a janela modal desaparece
+document.getElementById('task-name').value = ''; //limpa o campo de nome da tarefa
