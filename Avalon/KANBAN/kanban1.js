@@ -76,3 +76,50 @@ dropZones.forEach(zone => { //adiciona o evento dragover na zona de drop -- drop
 });
 
 });
+
+//Funcoes do Drag e Drop
+// 1. Permitir o Drop
+function allowDrop(event) {
+    event.preventDefault(); //previne o comportamento padrão do evento -- o comportamento padrão do evento é que o elemento não pode ser arrastado
+}
+
+// 2. Funcao de Drag
+function drag(event) {
+    event.dataTransfer.setData("text", event.target.id); //adiciona o id do elemento arrastado na zona de drop -- o id do elemento arrastado é o nome da tarefa
+}
+
+//3 Funcao de Drop
+function drop(event) {
+    event.preventDefault(); //previne o comportamento padrão do evento -- o comportamento padrão do evento é que o elemento não pode ser arrastado
+    const taskId = event.dataTransfer.getData("text"); //pega o id do elemento arrastado -- o id do elemento arrastado é o nome da tarefa
+    const task = document.getElementById(taskId); //pega o elemento arrastado -- o elemento arrastado é a tarefa
+
+    if (task){ //se o elemento arrastado existir
+        event.target.appendChild(task); //adiciona a tarefa na zona de drop -- a zona de drop é o container onde as tarefas podem ser soltas
+    }
+}  
+
+/*
+1. Habilitando a funcionalidade de arrastar (dragstart)
+Define que o elemento pode ser arrastado (draggable = true).
+
+Adiciona um evento que chama a função drag(event) quando o usuário começa a arrastar a tarefa.
+
+ 2. Guardando o elemento que está sendo arrastado
+
+ O event.dataTransfer.setData() salva o ID do elemento que está sendo arrastado.
+
+Isso é necessário porque, quando soltamos a tarefa em outro lugar, precisamos saber qual elemento foi arrastado.
+
+3. Permitindo que as tarefas sejam soltas nas colunas (dragover)
+Por padrão, o navegador não permite soltar (drop) um elemento.
+
+O event.preventDefault() ativa a funcionalidade de soltar.
+
+4. Soltando a tarefa em outra coluna (drop)
+Recupera o ID da tarefa arrastada.
+
+Obtém a referência do elemento correspondente no HTML.
+
+Move a tarefa para a nova coluna onde foi solta.
+*/
