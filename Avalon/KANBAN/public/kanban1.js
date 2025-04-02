@@ -51,3 +51,4 @@ const task = {
 //a variavel taskElement vai criar um elemento div, que vai ser a tarefa
 const taskElement = document.createElement('div');
 taskElement.classList.add('task'); //adiciona a classe task na div -- a classe task é a tarefa que colocamos nos containers de situacao da tarefa
+taskElement.setAttribute('draggable', 'true'); //adiciona o atributo draggable na div -- o atributo draggable permite que o elemento seja arrastado
