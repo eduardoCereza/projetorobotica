@@ -5,9 +5,14 @@ const modal = document.querySelectorAll('.modal'); //janela onde adicionamos tar
 const addTaskButton = document.querySelectorAll('.add-task'); //botao de add nova tarefa
 const todolist = document.querySelectorAll('.todo'); //container onde as tarefas são adicionadas
 
-//Passo 1: Clicar para aprecer JANELA
+//Passo 1: Clicar para abrir JANELA
 //quando eu clicar em Adicionar tarefa, a janela modal aparece, por conta funcao addEventListener
 document.querySelector('.add-task').addEventListener('click', function() {
     modal.style.display = 'block'; //ao clicar no botao, a janela modal aparece
 });
 
+//Passo 2: Clicar para fechar JANELA
+//quando eu clicar no botao fechar, a janela modal desaparece, por conta funcao addEventListener
+document.querySelector('.close').addEventListener('click', function() {
+    modal.style.display = 'none'; //ao clicar no botao fechar, a janela modal desaparece
+});
