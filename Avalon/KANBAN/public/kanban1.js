@@ -16,3 +16,11 @@ document.querySelector('.add-task').addEventListener('click', function() {
 document.querySelector('.close').addEventListener('click', function() {
     modal.style.display = 'none'; //ao clicar no botao fechar, a janela modal desaparece
 });
+
+//Passo 3: Clicar para adicionar tarefa
+//quando eu clicar no botao adicionar, a tarefa é adicionada na lista de tarefas
+window.addEventListener('click', function(event) {
+    if (event.target == modal) {
+        modal.style.display = 'none'; //ao clicar fora da janela modal, a janela desaparece
+    }
+});
