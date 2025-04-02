@@ -26,6 +26,7 @@ window.addEventListener('click', function(event) {
 });
 
 //Passo 4: Adicionar tarefa
+//a funcao getElementById vai buscar no HTML a div com base no que queremos
 addTaskButton.addEventListener('click', function() {
     const taskName = document.getElementById('task-name').value; //vai buscar no HTML a div com o ID task-name
     const taskCategory = document.getElementById('task-category').value; //vai buscar no HTML a div com o ID task-category
