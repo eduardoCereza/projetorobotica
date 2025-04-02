@@ -36,6 +36,7 @@ h1 {
     justify-content: center;
     gap: 50px;
     margin-top: 50px;
+    position: right;
 }
 
 .kanban-selection a {
@@ -46,8 +47,8 @@ h1 {
 }
 
 .kanban-selection img {
-    width: 200px;
-    height: 200px;
+    width: 500px;
+    height: 250px;
     border-radius: 10px;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
