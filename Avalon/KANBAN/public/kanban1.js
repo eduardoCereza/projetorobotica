@@ -32,3 +32,9 @@ addTaskButton.addEventListener('click', function() {
     const taskCategory = document.getElementById('task-category').value; //vai buscar no HTML a div com o ID task-category
     const taskPriority = document.getElementById('task-priority').value; //vai buscar no HTML a div com o ID task-priority
 });
+
+//Se o campo de nome da tarefa estiver vazio, exibe um alerta
+if (taskName.trim() == ""){
+    alert("Digite o nome da tarefa!");
+    return;
+}
