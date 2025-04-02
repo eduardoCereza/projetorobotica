@@ -38,3 +38,16 @@ if (taskName.trim() == ""){
     alert("Digite o nome da tarefa!");
     return;
 }
+
+//Quando eu nn seleciono nenhuma tarefa, exibe um alerta no meu navegador com a frase. Testei e achei interessante
+
+//Cria uma lista para designar o nome, a categoria e a prioridade da tarefa dentro de uma varivael constante
+const task = {
+    nome: taskName,
+    category: taskCategory,
+    priority: taskPriority 
+};
+
+//a variavel taskElement vai criar um elemento div, que vai ser a tarefa
+const taskElement = document.createElement('div');
+taskElement.classList.add('task'); //adiciona a classe task na div -- a classe task é a tarefa que colocamos nos containers de situacao da tarefa
